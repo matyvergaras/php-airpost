@@ -1,0 +1,216 @@
+<html>
+	<head>
+		<title>Registro</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		<link rel='shortcut icon' href='img/Logo-Airpost-Final-05.jpg' type='image/ico' />
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/sky-forms.css">
+		
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/funciones.js" type="text/javascript"></script>
+		<script src="js/jquery.base64.js" type="text/javascript"></script>
+		<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			cargaPaises();
+			cargaFormas();
+			$("#solicitar").click(function(){
+				solicitud();
+			});
+		});
+
+		function cargaPaises()
+		{
+			$.get("home/controladorajax.php?data=paises", function(data){
+				$("#cmbPais").html(data);
+			});
+		}
+
+		function cargaFormas()
+		{
+			$.get("home/controladorajax.php?data=formas", function(data){
+				$("#cmbFormas").html(data);
+			});
+		}
+		</script>
+		<script type="text/javascript">
+			$(function()
+			{
+				// Validation		
+				$("#registro").validate(
+				{					
+					// Rules for form validation
+					rules:
+					{
+						txtNombre:
+						{
+							required: true,
+							minlength: 3,
+							maxlength: 30
+						},
+						txtApellido:
+						{
+							required: true,
+							minlength: 3,
+							maxlength: 30
+						},
+						txtCorreo:
+						{
+							required: true,
+							email: true
+						},
+						txtEmpresa:
+						{
+							required: true,
+							minlength: 3,
+							maxlength: 50
+						},
+						txtContactos:
+						{
+							required: true,
+							number: true
+						},
+						cmbPais:
+						{
+							required: true
+						}
+					},
+					
+					// Messages for form validation
+					messages:
+					{
+						txtNombre:
+						{
+							required: 'Por favor ingrese su nombre'
+						},
+						txtApellido:
+						{
+							required: 'Por favor ingrese su apellido'
+						},
+						txtCorreo:
+						{
+							required: 'Por favor ingrese su correo',
+							email: 'Por favor ingrese un correo válido'
+						},
+						txtEmpresa:
+						{
+							required: 'Por favor ingrese el nombre de su empresa'
+						},
+						txtContactos:
+						{
+							required: 'Por favor ingrese la cantidad de contactos de su base de datos',
+						},
+						cmbPais:
+						{
+							required: 'Por favor seleccione un pais'
+						}
+					},					
+					
+					// Do not change code below
+					errorPlacement: function(error, element)
+					{
+						error.insertAfter(element.parent());
+					}
+				});
+			});			
+		</script>
+	</head>
+	<body class="bg-cyan">
+		<div class="body body-s">		
+			<form action="#" id="registro" class="sky-form" name="registro" method="post">
+				<header>Solicitud</header>
+				
+				<fieldset>
+					<section>
+						<label class="input">
+							<i class="icon-append fa fa-user"></i>
+							<input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre">
+							<b class="tooltip tooltip-bottom-right">Por favor ingrese su nombre</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input">
+							<i class="icon-append fa fa-user"></i>
+							<input type="text" name="txtApellido" id="txtApellido" placeholder="Apellido">
+							<b class="tooltip tooltip-bottom-right">Por favor ingrese su apellido</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input">
+							<i class="icon-append fa fa-envelope-o"></i>
+							<input type="email" name="txtCorreo" id="txtCorreo" placeholder="Correo">
+							<b class="tooltip tooltip-bottom-right">Por favor ingrese su correo</b>
+						</label>
+					</section>	
+
+					<section>
+						<label class="input">
+							<i class="icon-append fa fa-user"></i>
+							<input type="text" name="txtTelefono" id="txtTelefono" placeholder="Telefono">
+							<b class="tooltip tooltip-bottom-right">Por favor ingrese su teléfono</b>
+						</label>
+					</section>
+					
+					<section>
+						<label class="input">
+							<i class="icon-append fa fa-user"></i>
+							<input type="text" name="txtEmpresa" id="txtEmpresa" placeholder="Empresa">
+							<b class="tooltip tooltip-bottom-right">Por favor ingrese el nombre de su empresa</b>
+						</label>
+					</section>
+					
+					<section>
+						<label class="input">
+							<i class="icon-append fa fa-user"></i>
+							<input type="text" name="txtCargo" id="txtCargo" placeholder="Cargo">
+							<b class="tooltip tooltip-bottom-right">Por favor ingrese su cargo dentro de la empresa</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input">
+							<i class="icon-append fa fa-user"></i>
+							<input type="text" name="txtPagina" id="txtPagina" placeholder="Pagina">
+							<b class="tooltip tooltip-bottom-right">Por favor ingrese la direccion del sitio web de la empresa</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input">
+							<i class="icon-append fa fa-user"></i>
+							<input type="text" name="txtContactos" id="txtContactos" placeholder="Cantidad de contactos">
+							<b class="tooltip tooltip-bottom-right">Por favor ingrese la cantidad de contactos de su base de datos</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="select">
+							<i class="icon-append fa fa-user"></i>
+							<select name="cmbPais" id="cmbPais"></select>
+							<b class="tooltip tooltip-bottom-right">Por favor seleccione el país de su empresa</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="select">
+							<i class="icon-append fa fa-user"></i>
+							<select name="cmbFormas" id="cmbFormas"></select>
+							<b class="tooltip tooltip-bottom-right">Por favor seleccione la forma en que supo de emailmarketing</b>
+						</label>
+					</section>
+
+				</fieldset>
+					
+				<footer>
+					<button type="button" id="solicitar" class="button" name="botonsubmit" value="Solicitar Demo">Solicitar Demo</button>
+					<a href="index.php" class="button button-secondary">Entrar</a>
+				</footer>
+			</form>			
+		</div>
+	</body>
+</html>	

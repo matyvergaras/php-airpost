@@ -1,0 +1,159 @@
+html,body
+{
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: green;
+}
+
+#todo
+{
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+
+#header
+{
+	height: 100px;
+	width: 100%;
+	background-color: red;
+	float: left;
+}
+
+#centro
+{
+	min-height: 724px;
+	width: 100%;
+	float: left;
+	height: auto;
+	min-height: 100%;
+	text-align: center;
+}
+
+#workArea
+{
+	height: auto;
+	min-height: 100%;
+	width: 100%;
+	max-width: 1200px;
+	background-color: yellow;
+	display: inline-block;
+}
+
+#workArea #izquierda
+{
+	width: 12%;
+	height: 100%;
+	float: left;
+	background-color: #BDBDBD;
+	text-align: left;
+}
+
+#workArea #derecha
+{
+	width: 88%;
+	height: auto;
+	min-height: 100%;
+	float:left;
+	background-color: cyan;
+	text-align: left;
+}
+
+#workArea #derecha #opcionenvio2
+{
+	color: gray;
+}
+
+#workArea #derecha #opcionenvio3
+{
+	color: gray;
+}
+
+#workArea .franja-opciones
+{
+	width: 100%;
+	height: 200px;
+	background-color: #ff00ff;
+	float: left;
+}
+
+#workArea .franja-opciones2
+{
+	width: 100%;
+	height: 200px;
+	margin-top: 30px;
+	background-color: #ff00ff;
+	float: left;
+}
+
+#workArea .franja-opciones2 .cuadro-izquierda
+{
+	height: 100%;
+	width: 50%;
+	background-color:#FF4000;
+	float: left;
+	border-right-style:solid;
+	border-right-width:thick;
+}
+
+#workArea .franja-opciones2 .cuadro-derecha
+{
+	height: 100%;
+	width: 49.5%;
+	background-color:#FF4000;
+	float: left;
+	overflow: auto;
+}
+
+.franja-titulo
+{
+	height: 20px;
+	width: 100%;
+	float: left;
+}
+
+.franja-titulo .titulo
+{
+	height: 20px;
+	width: 67px;
+	margin: 0 auto;
+}
+
+#workArea #dashboard #opciones
+{
+	width: 100%;
+	height: 150px;
+	margin-top: 25px;
+	background-color: #8258FA;
+	float: left;
+}
+
+#workArea #dashboard #opciones .botones
+{
+	height: 100px;
+	width: 100px;
+	background-color: #82FA58;
+	margin-left: 50px;
+	margin-top: 25px;
+	float: left;
+	cursor: pointer;
+}
+
+#workArea #menu
+{
+	height: 5%;
+	width: 100%;
+	float: left;
+}
+
+#footer
+{
+	height: 200px;
+	width: 100%;
+	background-color: orange;
+	float: left;
+}
